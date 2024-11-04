@@ -270,7 +270,7 @@ h6 { font-size: 16px; }
 .grax_tm_topbar .logo .dark{display: none;}
 .grax_tm_topbar.animate .logo .dark{display: block;}
 .grax_tm_topbar.animate .logo .light{display: none;}
-.grax_tm_topbar .logo img{max-width: 200px;}
+.grax_tm_topbar .logo img{max-width: 300px;}
 .grax_tm_topbar .logo a{display: inline-block;}
 .grax_tm_topbar .menu ul{
 	margin: 0px;
@@ -515,10 +515,11 @@ h6 { font-size: 16px; }
 	z-index: 5;
 }
 .grax_tm_hero .name{
-	font-size: 72px;
+	font-size: 80px;
 	font-weight: 700;
 	color: #fff;
-	margin-bottom: 11px;
+	margin-bottom: 10px;
+	text-shadow: #000 1px 0 10px;
 }
 
 .grax_tm_hero .details[data-animation="toTop"] .fn_animation .character{top: 15px;}
@@ -567,11 +568,12 @@ h6 { font-size: 16px; }
 	color: #ddd;
 	letter-spacing: 1.5px;
 	font-family: "Poppins";
-	font-size: 17px;
+	font-size: 25px;
 	font-weight: 500;
 	margin-bottom: 40px;
 	max-width: 400px;
 	font-style: italic;
+	text-shadow: #000 1px 0 10px;
 }
 .grax_tm_down{
 	position: absolute;
