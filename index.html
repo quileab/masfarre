@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masfarre - Sonido e Iluminacion</title>
-    <link rel="icon" type="image/png" href="favicon.png" />
-    
-    <link rel="stylesheet" href="src/styles.css">
-    <link rel="stylesheet" type="text/css"
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masfarre - Sonido e Iluminacion</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <link rel="stylesheet" href="src/styles.css">
+  <link rel="stylesheet" type="text/css"
     href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="src/venobox.min.css" />
-  </head>
-  
-  <body class="bg-gray-100 dark:bg-gray-900 dark:text-white">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="src/venobox.min.css" />
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900 dark:text-white">
   <!-- Responsive Navbar with vanilla JS -->
   <nav class="bg-white shadow-md dark:bg-gray-800 dark:text-white">
     <div class="container mx-auto px-4 py-3 flex items-center justify-between">
@@ -24,9 +24,9 @@
       </a>
 
       <div class="hidden md:flex space-x-4">
-        <a href="#" class="hover:text-gray-600">Nosotros</a>
-        <a href="#" class="hover:text-gray-600">Servicios</a>
-        <a href="#" class="hover:text-gray-600">Tendencias</a>
+        <a href="#about" class="hover:text-red-700 font-bold">Nosotros</a>
+        <a href="#servicios" class="hover:text-orange-700 font-bold">Servicios</a>
+        <a href="#tendencias" class="hover:text-fuchsia-700 font-bold">Tendencias</a>
       </div>
 
       <button id="menu-toggle" class="md:hidden text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800
@@ -121,7 +121,7 @@
 
   <section id="about" class="m-8">
     <img src="images/about.jpg" alt="Fondo" class="w-full md:h-52 h-full object-cover rounded-2xl">
-     <div data-animate="animate__fadeInLeft" class="animate__animated animate__fast">
+    <div data-animate="animate__fadeInLeft" class="animate__animated animate__fast">
       <h1 class="text-3xl font-russo tracking-widest mt-4">ULTIMOS <span class="masf-fuchsia">POSTS</span></h1>
       <p class="text-justify indent-8 text-slate-500">
         Lo que dicen los que nos conocen
@@ -129,8 +129,8 @@
       <!-- respuesta de JSON -->
       <div id="comentarios" class="grid md:grid-cols-5 grid-cols-2 gap-4 mt-4"></div>
 
-     </div> 
-  </section>  
+    </div>
+  </section>
 
 
   <section id="contact" class="m-8">
@@ -189,7 +189,7 @@
     </div>
   </section>
 
-  <section id="footer" class= "clip-footer grid grid-cols-2 bg-masfarre-party bg-gray-900 p-8 items-baseline mb-8">
+  <section id="footer" class="clip-footer grid grid-cols-2 bg-masfarre-party bg-gray-900 p-8 items-baseline mb-8">
     <img src="./images/logoclaro.png" alt="Masfarre" class="w-2/3 h-auto mx-auto">
     <p class="text-right text-white pr-4">
       <i class="ph-bold ph-copyright"></i>
