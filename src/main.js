@@ -41,7 +41,53 @@ new VenoBox({
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch('./gmComments.php')
+  //Noticias de backend a frontend
+  fetch('./api/posts')
+    .then(response => response.json())
+    .then(data => {
+      const contenedor = document.getElementById('news-posts');
+
+      if (Array.isArray(data)) {
+        data.forEach(posts => {
+          const div = document.createElement('div');
+          div.innerHTML = `
+            <div class="flex flex-col rounded-lg bg-gray-100 dark:bg-gray-800 border border-purple-500 p-4">
+              <p class="text-gray-500 dark:text-gray-400 mb-4"> 
+                ⭐${posts.rating}/5
+              </p>
+              <p class="text-gray-500 dark:text-gray-400 line-clamp-3 overflow-clip text-ellipsis">
+                <a href="${posts.author_url}" target="_blank">
+                ${posts.text} <br><br><br>
+                </a>
+              </p>
+              <hr class="my-4 border-purple-500/50">
+              <div class="flex items-center gap-x-2 text-gray-500 dark:text-gray-400">
+                <img src="${posts.profile_photo_url}" alt="Foto de perfil" class="w-12 h-12 rounded-full"> 
+                <span class="text-sm">
+                  <b>${posts.author_name}</b>
+                  <br>
+                    ${new Date(posts.time*1000).toLocaleDateString('es-ES', {
+                      year: 'numeric',
+                      month: 'numeric',
+                      day: 'numeric',
+                    })}
+                </span>
+              </div>
+            </div>
+          `;
+          contenedor.appendChild(div);
+        });
+      } else if (data.error) {
+        contenedor.innerHTML = `<p>${data.error}</p>`;
+      }
+    })
+    .catch(error => {
+      console.error('Error al obtener json:', error);
+      document.getElementById('news-posts').innerHTML = '<p>Error al cargar los comentarios.</p>';
+    });
+
+    // Actualizar los comentarios cada 5 minutos
+      fetch('./gmComments.php')
     .then(response => response.json())
     .then(data => {
       const contenedor = document.getElementById('comentarios');
