@@ -54,9 +54,12 @@ document.addEventListener("DOMContentLoaded", () => {
         let postCount = 0;
         data.forEach(posts => {
           postCount++;
+          // Crear un nuevo div para cada post con estilo flex y flex-col
+
           const div = document.createElement('div');
+          div.className = 'min-w-64 max-w-[400px]'; // Añadir clases de Tailwind CSS para el estilo
           div.innerHTML = `
-          <div class="flex flex-col rounded-lg bg-gray-100 dark:bg-gray-800 border border-purple-500 overflow-hidden">
+          <div class="rounded-lg w-full bg-gray-100 dark:bg-gray-800 border border-purple-500 overflow-hidden ">
           <img src="https://masfarre-bakend.test/${posts.image}" alt="imagen posts" class="object-cover aspect-video"> 
               <p class="dark:text-gray-200 p-2"> 
                 ${posts.title}
