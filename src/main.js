@@ -42,37 +42,30 @@ new VenoBox({
 
 document.addEventListener("DOMContentLoaded", () => {
   //Noticias de backend a frontend
-  fetch('./api/posts')
+  fetch('https://masfarre-bakend.test/api/posts')
     .then(response => response.json())
     .then(data => {
+      console.log(data);
+
       const contenedor = document.getElementById('news-posts');
 
       if (Array.isArray(data)) {
+        //contador de posts
+        let postCount = 0;
         data.forEach(posts => {
+          postCount++;
           const div = document.createElement('div');
           div.innerHTML = `
-            <div class="flex flex-col rounded-lg bg-gray-100 dark:bg-gray-800 border border-purple-500 p-4">
-              <p class="text-gray-500 dark:text-gray-400 mb-4"> 
-                ⭐${posts.rating}/5
+          <div class="flex flex-col rounded-lg bg-gray-100 dark:bg-gray-800 border border-purple-500 overflow-hidden">
+          <img src="https://masfarre-bakend.test/${posts.image}" alt="imagen posts" class="object-cover aspect-video"> 
+              <p class="dark:text-gray-200 p-2"> 
+                ${posts.title}
               </p>
-              <p class="text-gray-500 dark:text-gray-400 line-clamp-3 overflow-clip text-ellipsis">
-                <a href="${posts.author_url}" target="_blank">
-                ${posts.text} <br><br><br>
-                </a>
-              </p>
-              <hr class="my-4 border-purple-500/50">
-              <div class="flex items-center gap-x-2 text-gray-500 dark:text-gray-400">
-                <img src="${posts.profile_photo_url}" alt="Foto de perfil" class="w-12 h-12 rounded-full"> 
-                <span class="text-sm">
-                  <b>${posts.author_name}</b>
-                  <br>
-                    ${new Date(posts.time*1000).toLocaleDateString('es-ES', {
-                      year: 'numeric',
-                      month: 'numeric',
-                      day: 'numeric',
-                    })}
-                </span>
-              </div>
+              <div id="${postCount}" class="flex flex-col px-4 dark:text-gray-400 line-clamp-5">
+               ${posts.content}
+
+               </div>
+              <button id="${postCount}-btn" class="text-purple-500 hover:text-purple-700 dark:hover:text-purple-400 dark:text-purple-300 text-sm font-semibold px-4 py-2" onclick="toggleClamp('${postCount}')">Leer más</button>
             </div>
           `;
           contenedor.appendChild(div);
@@ -87,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Actualizar los comentarios cada 5 minutos
-      fetch('./gmComments.php')
+    fetch('./gmComments.php')
     .then(response => response.json())
     .then(data => {
       const contenedor = document.getElementById('comentarios');
@@ -130,4 +123,14 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error('Error al obtener reseñas:', error);
       document.getElementById('comentarios').innerHTML = '<p>Error al cargar los comentarios.</p>';
     });
+
 });
+
+    function toggleClamp(id) {
+      const text = document.getElementById(id);
+      const btn = document.getElementById(id + '-btn');
+      const isClamped = text.classList.contains('line-clamp-5');
+
+      text.classList.toggle('line-clamp-5');
+      btn.textContent = isClamped ? 'Leer menos' : 'Leer más';
+    }

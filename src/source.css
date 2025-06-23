@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Russo+One&display=swap");
-@import "tailwindcss";
+@import "tailwindcss" ;
 @theme {
   --font-mulish: "Mulish", sans-serif;
   --font-russo: "Russo One", sans-serif;
@@ -68,3 +68,8 @@ a.events-gallery > img {
   /* image cover */
   object-fit: cover;
 }
+
+.line-clamp-5 {
+  @apply line-clamp-5;
+  -webkit-line-clamp: 5;
+} 
