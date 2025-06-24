@@ -93,7 +93,7 @@
         <img src="images/events/3.jpg">
       </a>
       <a class="events-gallery" data-gall="gallery01" href="images/events/4.jpg">
-        <img src="images/events/4.jpg">
+        <img src="images/events/4.jpg" class="w-full h-full object-cover rounded-lg">
       </a>
       <a class="events-gallery" data-gall="gallery01" href="images/events/5.jpg">
         <img src="images/events/5.jpg">
@@ -126,7 +126,9 @@
     <div data-animate="animate__fadeInLeft" class="animate__animated animate__fast">
       <h1 class="text-3xl font-russo tracking-widest mt-4">ULTIMOS <span class="masf-fuchsia">POSTS</span></h1>
     
-      <div id="news-posts" class="flex flex-wrap gap-4 mt-4"></div>
+      <div id="news-posts" class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 mt-4">
+        <!--Loading Posts-->
+      </div>
       <p class="text-justify indent-8 text-slate-500">
         Lo que dicen los que nos conocen
       </p>
